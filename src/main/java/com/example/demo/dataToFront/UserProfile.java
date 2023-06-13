@@ -8,6 +8,7 @@ public class UserProfile {
     private Integer user_id;
     private String name;
     private String surname;
+    private Byte root;
     private Long phone_number;
     private String email;
     private List<LocationToFront> locations;
@@ -43,5 +44,10 @@ public class UserProfile {
     public List<LocationToFront> getLocations() {return locations;}
     public void setLocations(List<LocationToFront> locations) {
         this.locations = locations;
+    }
+
+    public Byte getRoot() {return root;}
+    public void setRoot(Byte root) {
+        this.root = root;
     }
 }

@@ -13,16 +13,16 @@
           <img th:src="@{/images/header__logo.svg}" alt="" class="header__logo" />
           <div class="header__links">
             <a href="" class="header__link">Профиль</a>
-            <a href="./WeatherPage.html" class="header__link">Погода</a>
+            <a th:href="@{WeatherPage}" class="header__link">Погода</a>
           </div>
         </header>
         <main class="main">
           <section class="profile">
             <h1 class="profile__heading">Профиль</h1>
             <div class="profile__info-container">
-              <p class="profile__name">Иван Иванов</p>
-              <p class="profile__phone-number">+7 904 715 7666</p>
-              <p class="profile__email">example@mail.com</p>
+              <p id="name" class="profile__name"></p>
+              <p id="phone" class="profile__phone-number"></p>
+              <p id="email" class="profile__email"></p>
             </div>
             <div class="profile__locations">
               <h2 class="profile__locations-heading">Локации</h2>

@@ -1,6 +1,7 @@
 package com.example.demo.dataToFront;
 
 public class LocationToFront {
+    private Integer location_id;
     private Double lat;
     private Double lon;
     private String location_name;
@@ -23,5 +24,11 @@ public class LocationToFront {
     }
     public void setLocation_name(String location_name) {
         this.location_name = location_name;
+    }
+    public Integer getLocation_id() {
+        return location_id;
+    }
+    public void setLocation_id(Integer location_id) {
+        this.location_id = location_id;
     }
 }

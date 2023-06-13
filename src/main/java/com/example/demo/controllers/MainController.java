@@ -150,6 +150,7 @@ public @ResponseBody ResponseEntity <?> addAdminCode(
             userProfile.setName(User.getName());
             userProfile.setSurname(User.getSurname());
             userProfile.setPhone_number(User.getPhone_number());
+            userProfile.setRoot(User.getRoot());
 
             List<LocationToFront> locations = new ArrayList<>();
             Iterable<tblLocationUserRelations> allRelations = LocationUserRelationsRepo.findAll();
@@ -159,7 +160,7 @@ public @ResponseBody ResponseEntity <?> addAdminCode(
                     location.setLat(relation.getLocations().getLat());
                     location.setLocation_name(relation.getLocations().getLocation_name());
                     location.setLon(relation.getLocations().getLon());
-
+                    location.setLocation_id(relation.getLocations().getLocation_id());
                     locations.add(location);
                 }
             }
