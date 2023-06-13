@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/UserPage.css" />
+    <link rel="stylesheet" th:href="@{/pages/UserPage.css}" />
     <title>Document</title>
   </head>
   <body>
     <div class="root root_type_light">
       <header class="header">
-        <img src="images/header__logo.svg" alt="" class="header__logo" />
+        <img th:src="@{/images/header__logo.svg}" alt="" class="header__logo" />
         <div class="header__links">
-          <a href="./UserSearchPage.html" class="header__link">Поиск</a>
+          <a th:href="@{UserSearchPage}" class="header__link">Поиск</a>
         </div>
       </header>
       <main class="main">
@@ -96,16 +96,16 @@
           <h3 class="popup__title">Координаты</h3>
           <input
           type="text"
-          id="input_longitude_location"
+          id="lat"
           class="popup__input"
-          placeholder="Долгота"
+          placeholder="Широта"
           required
         />
         <input
         type="text"
-        id="input_latitude_location"
+        id="lon"
         class="popup__input"
-        placeholder="Широта"
+        placeholder="Долгота"
         required
       />
       <h3 class="popup__title">Состояние погоды</h3>
@@ -191,6 +191,6 @@
       </div>
     </div>
   </div>
-  <script src="./scripts/UserPage.js"></script>
+  <script th:src="@{/scripts/UserPage.js}"></script>
   </body>
 </html>

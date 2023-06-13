@@ -18,11 +18,11 @@ var xmlHttp = new XMLHttpRequest();  //объект для запроса
         
         const node = document.createElement("div");  //создаю карточку локации
         node.classList.add("user__location");  //класс карточки локации
-        node.setAttribute("id", profile.locations[i].location_id);
+        node.setAttribute("id", Locations[i].location_id);
         const node2 = document.createElement("p");  //поле для текста
         node2.classList.add("user__location-place");  //класс поля для текста
 
-        node2.appendChild(document.createTextNode("lat: "+Locations[i].lat+ "  lan: " + Locations[i].lon));  //в поле передаю координаты и название
+        node2.appendChild(document.createTextNode("lat: "+Locations[i].lat+ "  lon: " + Locations[i].lon));  //в поле передаю координаты и название
         node.appendChild(node2);  //добавляю текст в карточку
 
         document.getElementById("id").appendChild(node);  //добавляю карточку в контейнер с id = "id"
@@ -41,25 +41,43 @@ if(xmlHttp2.status==200){
 
 
     document.getElementById("name").innerText = profile.name + " " + profile.surname;
-    document.getElementById("userID").innerText = profile.email;
+    document.getElementById("userID").innerText = profile.user_id;
 }
 
 
 
 const cards = document.querySelectorAll(".user__location");  //нахожу все карточки локаций
 
-
+const location_name = document.getElementById("input_location-name");
+const temperature_from = document.getElementById("input_temperature_from");
+const temperature_to = document.getElementById("input_temperature_to");
+const wind_from = document.getElementById("input_wind_from");
+const wind_to = document.getElementById("input_wind_to");
+const humidity_from = document.getElementById("input_humidity_from");
+const humidity_to = document.getElementById("input_humidity_to");
+const lat = document.getElementById("lat");
+const lon = document.getElementById("lon");
 
 const openPopup = () => {
   popup.classList.add("popup_opened");
 };
 
 const closePopup = () => {
-  popup.classList.remove("popup_opened");
   
+  popup.classList.remove("popup_opened");
+  document.querySelector(".popup__form").scrollTo(0,0);
+  location_name.value="";
+  temperature_from.value="";
+  temperature_to.value="";
+  wind_from.value="";
+  wind_to.value="";
+  humidity_from.value="";
+  humidity_to.value="";
+  lat.value="";
+  lon.value="";
 };
 
-cards.forEach(card => card.addEventListener("click", openPopup));  //добавляю каждой карточке попап
-closeButton.addEventListener("click", closePopup);  // у попапа добавляю закрытие
+cards.forEach(card => card.addEventListener("click", openPopup));  
+closeButton.addEventListener("click", closePopup);  
 
 
