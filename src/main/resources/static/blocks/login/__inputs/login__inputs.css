@@ -1,0 +1,11 @@
+.login__inputs {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #333f68;
+  font-weight: 600;
+  font-size: 12px;
+  max-width: 600px;
+  width: 100%;
+}

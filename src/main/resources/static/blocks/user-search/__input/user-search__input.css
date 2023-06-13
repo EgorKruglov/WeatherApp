@@ -1,0 +1,16 @@
+.user-search__input {
+  height: 25px;
+  max-width: 400px;
+  width: 100%;
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  outline: 0;
+  border-bottom: 2px #4947b8 solid;
+  padding-bottom: 5px;
+  font-size: 18px;
+  box-sizing: border-box;
+}

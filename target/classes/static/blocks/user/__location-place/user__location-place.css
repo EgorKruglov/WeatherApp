@@ -1,0 +1,33 @@
+.user__location-place {
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+  padding-left: 20px;
+  margin-left: 15px;
+}
+.user__location-place::before {
+  content: "";
+  background: url(../../../images/info_icons/location_icon.png) no-repeat;
+  background-size: cover;
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  position: absolute;
+  top: 2px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.user__location-place::after {
+  content: "";
+  background: url(../../../images/info_icons/edit_icon.svg) no-repeat;
+  background-size: cover;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 250px;
+  right: 0;
+}

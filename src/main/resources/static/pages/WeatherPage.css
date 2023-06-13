@@ -1,0 +1,39 @@
+@import url(/vendor/normalize/normalize.css);
+
+@import url(/vendor/fonts/fonts.css);
+
+@import url(../blocks/root/root.css);
+@import url(../blocks/root/_type_light/root_type_light.css);
+
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__link/header__link.css);
+@import url(../blocks/header/__links/header__links.css);
+@import url(../blocks/header/__logo/header__logo.css);
+@import url(../blocks/header/__link/_type_light/header__links_type_light.css);
+
+@import url(../blocks/weather/weather.css);
+
+@import url(../blocks/cards/cards.css);
+
+@import url(../blocks/card-selected/card-selected.css);
+@import url(../blocks/card-selected/__weather/card-selected__weather.css);
+@import url(../blocks/card-selected/__info-container/card-selected__info-container.css);
+@import url(../blocks/card-selected/__temperature/card-selected__temperature.css);
+@import url(../blocks/card-selected/__date/card-selected__date.css);
+@import url(../blocks/card-selected/__wind-speed/card-selected__wind-speed.css);
+@import url(../blocks/card-selected/__humidity/card-selected__humidity.css);
+@import url(../blocks/card-selected/__location/card-selected__location.css);
+@import url(../blocks/card-selected/__wind-direction/card-selected__wind-direction.css);
+
+@import url(../blocks/day-cards/day-cards.css);
+@import url(../blocks/day-cards/__week-title/day-cards__week-title.css);
+
+@import url(../blocks/day-card/day-card.css);
+@import url(../blocks/day-card/__date/day-card__date.css);
+@import url(../blocks/day-cards/__container/day-cards__container.css);
+@import url(../blocks/day-card/__weather/day-card__weather.css);
+@import url(../blocks/day-card/__temperature/day-card__temperature.css);
+
+@import url(../blocks/rotate/rotate.css);
+@import url(../blocks/translate/translate.css);
+@import url(../blocks/scale/scale.css);

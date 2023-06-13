@@ -1,0 +1,14 @@
+.user-search__card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  position: relative;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding-left: 20px;
+  border-bottom: 1px solid #1e0d7e;
+  transition:background-color .4s ease-in-out;
+}
+.user-search__card:hover{
+  background-color: rgb(229, 239, 251);
+}

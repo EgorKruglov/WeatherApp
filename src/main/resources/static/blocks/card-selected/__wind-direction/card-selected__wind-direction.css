@@ -1,0 +1,7 @@
+.card-selected__wind-direction{
+    font-size: 9px;
+    text-transform: uppercase;
+    color: rgb(200, 250, 233);
+    position: relative;
+    bottom: 5px;
+}

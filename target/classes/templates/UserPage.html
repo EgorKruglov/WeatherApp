@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/UserPage.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="root root_type_light">
+      <header class="header">
+        <img src="images/header__logo.svg" alt="" class="header__logo" />
+        <div class="header__links">
+          <a href="./UserSearchPage.html" class="header__link">Поиск</a>
+        </div>
+      </header>
+      <main class="main">
+        <section class="user">
+          <div class="user__info-container">
+            <h1 class="user__heading">Пользователь</h1>
+            <p class="user__name">Иван Иванов</p>
+            <p class="user__id">123456</p>
+          </div>
+          <div class="user__locations">
+            <h2 class="user__locations-heading">Локации</h2>
+            <div class="user__locations-container" id="id">
+              
+            </div>
+          </div>
+        </section>
+      </main>
+    
+    <div class="popup">
+      <div class="popup__container">
+        <button
+          type="button"
+          aria-label="Закрыть"
+          class="popup__close-button"
+        ></button>
+        <form class="popup__form" name="popup__form">
+          <h2 class="popup__heading">Редактировать</h2>
+          <div class="popup__inputs">
+            <input
+              type="text"
+              id="input_location-name"
+              class="popup__input"
+              placeholder="Название локации"
+              required
+            />
+            <h3 class="popup__title">Критические значения температуры</h3>
+            <input
+              id="input_temperature_from"
+              class="popup__input"
+              placeholder="От"
+              type="number"
+              required
+            />
+            <input
+            id="input_temperature_to"
+            class="popup__input"
+            placeholder="До"
+            type="number"
+            required
+          />
+          <h3 class="popup__title">Критические значения скорости ветра</h3>
+            <input
+              id="input_wind_from"
+              class="popup__input"
+              placeholder="От"
+              type="number"
+              required
+            />
+            <input
+            id="input_wind_to"
+            class="popup__input"
+            placeholder="До"
+            type="number"
+            required
+          />
+          <h3 class="popup__title">Критические значения влажности</h3>
+          <input
+            id="input_humidity_from"
+            class="popup__input"
+            placeholder="От"
+            type="number"
+            required
+          />
+          <input
+          id="input_humidity_to"
+          class="popup__input"
+          placeholder="До"
+          type="number"
+          required
+        />
+          <h3 class="popup__title">Координаты</h3>
+          <input
+          type="text"
+          id="input_longitude_location"
+          class="popup__input"
+          placeholder="Долгота"
+          required
+        />
+        <input
+        type="text"
+        id="input_latitude_location"
+        class="popup__input"
+        placeholder="Широта"
+        required
+      />
+      <h3 class="popup__title">Состояние погоды</h3>
+      <div class="popup__checkbox-container">
+        <input id="clear" type="checkbox" class="popup__checkbox">
+        <label for="clear" class="popup__checkbox-label">ясно</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="partly-cloudy" type="checkbox" class="popup__checkbox">
+        <label for="partly-cloudy" class="popup__checkbox-label">малооблачно</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="cloudy" type="checkbox" class="popup__checkbox">
+        <label for="cloudy" class="popup__checkbox-label">облачно с прояснениями</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="overcast" type="checkbox" class="popup__checkbox">
+        <label for="overcast" class="popup__checkbox-label">пасмурно</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="drizzle" type="checkbox" class="popup__checkbox">
+        <label for="drizzle" class="popup__checkbox-label">морось</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="light-rain" type="checkbox" class="popup__checkbox">
+        <label for="light-rain" class="popup__checkbox-label">небольшой дождь</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="rain" type="checkbox" class="popup__checkbox">
+        <label for="rain" class="popup__checkbox-label">дождь</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="moderate-rain" type="checkbox" class="popup__checkbox">
+        <label for="moderate-rain" class="popup__checkbox-label">умеренно сильный дождь</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="heavy-rain" type="checkbox" class="popup__checkbox">
+        <label for="heavy-rain" class="popup__checkbox-label">сильный дождь</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="continuous-heavy-rain" type="checkbox" class="popup__checkbox">
+        <label for="continuous-heavy-rain" class="popup__checkbox-label">длительный сильный дождь</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="showers" type="checkbox" class="popup__checkbox">
+        <label for="showers" class="popup__checkbox-label">ливень</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="wet-snow" type="checkbox" class="popup__checkbox">
+        <label for="wet-snow" class="popup__checkbox-label">дождь со снегом</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="light-snow " type="checkbox" class="popup__checkbox">
+        <label for="light-snow " class="popup__checkbox-label">небольшой снег</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="snow" type="checkbox" class="popup__checkbox">
+        <label for="snow" class="popup__checkbox-label">снег</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="snow-showers" type="checkbox" class="popup__checkbox">
+        <label for="snow-showers" class="popup__checkbox-label">снегопад</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="hail" type="checkbox" class="popup__checkbox">
+        <label for="hail" class="popup__checkbox-label">град</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="thunderstorm" type="checkbox" class="popup__checkbox">
+        <label for="thunderstorm" class="popup__checkbox-label">гроза</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="thunderstorm-with-rain" type="checkbox" class="popup__checkbox">
+        <label for="thunderstorm-with-rain" class="popup__checkbox-label">дождь с грозой</label>
+      </div>
+      <div class="popup__checkbox-container">
+        <input id="thunderstorm-with-hai" type="checkbox" class="popup__checkbox">
+        <label for="thunderstorm-with-hai" class="popup__checkbox-label">гроза с градом</label>
+      </div>
+          </div>
+          <button type="submit" class="popup__submit-button">Подтвердить</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="./scripts/UserPage.js"></script>
+  </body>
+</html>

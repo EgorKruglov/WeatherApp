@@ -1,0 +1,21 @@
+.profile__location-place{
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    padding-left: 20px;
+}
+.profile__location-place::before{
+    content: "";
+  background: url(../../../images/info_icons/location_icon.png) no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  position: absolute;
+  top: 2px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+ 
+}

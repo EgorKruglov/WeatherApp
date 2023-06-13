@@ -1,0 +1,9 @@
+.profile__locations {
+  width: 100%;
+  background: #fffffffc;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

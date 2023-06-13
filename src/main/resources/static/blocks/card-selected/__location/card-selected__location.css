@@ -1,0 +1,16 @@
+.card-selected__location {
+  font-size: 12px;
+  margin: 0;
+  margin-top: 120px;
+}
+.card-selected__location::before {
+  content: "";
+  background: url(../../../images/info_icons/location_icon.png) no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  
+  margin-right: 4px;
+}

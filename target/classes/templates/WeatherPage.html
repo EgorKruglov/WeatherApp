@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/WeatherPage.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="root root_type_light">
+      <header class="header">
+        <img src="images/header__logo.svg" alt="" class="header__logo" />
+        <div class="header__links">
+          <a href="./ProfilePage.html" class="header__link">Профиль</a>
+          <a href="" class="header__link">Погода</a>
+        </div>
+      </header>
+      <main class="main">
+        <section class="weather" aria-label="Погода">
+          <div class="cards">
+            <div class="card-selected">
+              <img
+                src="images/weather_icons/sun_icon.png"
+                alt=""
+                class="card-selected__weather"
+              />
+              <div class="card-selected__info-container">
+                <p class="card-selected__temperature">20&#8451;</p>
+                <!-- температура должна передаваться с символом &#8451; -->
+                <time datetime="12:00" class="card-selected__date"
+                  >Сегодня, 12:00</time
+                ><!-- нужно не забыть про datetime -->
+
+                <p class="card-selected__wind-speed">
+                  4.7 <span class="card-selected__wind-direction">юз</span>
+                </p>
+                <p class="card-selected__humidity">55&#37;</p>
+                <!-- знак процента &#37; -->
+                <p class="card-selected__location">55.805013, 36.806980</p>
+              </div>
+            </div>
+            <div class="day-cards">
+              <h2 class="day-cards__week-title">Неделя</h2>
+              <div class="day-cards__container">
+                <div class="day-card">
+                  <time class="day-card__date">Сегодня</time>
+                  <img
+                    src="images/weather_icons/sun_icon.png"
+                    alt=""
+                    class="day-card__weather rotate"
+                  />
+                  <p class="day-card__temperature">20&#8451;</p>
+                </div>
+                <div class="day-card">
+                  <time class="day-card__date">Сегодня</time>
+                  <img
+                    src="images/weather_icons/cloudy_sun_icon.png"
+                    alt=""
+                    class="day-card__weather translate"
+                  />
+                  <p class="day-card__temperature">20&#8451;</p>
+                </div>
+                <div class="day-card">
+                  <time class="day-card__date">Сегодня</time>
+                  <img
+                    src="images/weather_icons/lightning-icon.png"
+                    alt=""
+                    class="day-card__weather scale"
+                  />
+                  <p class="day-card__temperature">20&#8451;</p>
+                </div>
+                <div class="day-card">
+                  <time class="day-card__date">Сегодня</time>
+                  <img
+                    src="images/weather_icons/lightning_rain_icon.png"
+                    alt=""
+                    class="day-card__weather scale"
+                  />
+                  <p class="day-card__temperature">20&#8451;</p>
+                </div>
+                <div class="day-card">
+                  <time class="day-card__date">Сегодня</time>
+                  <img
+                    src="images/weather_icons/snow_icon.png"
+                    alt=""
+                    class="day-card__weather translate"
+                  />
+                  <p class="day-card__temperature">20&#8451;</p>
+                </div>
+                <div class="day-card">
+                  <time class="day-card__date">Сегодня</time>
+                  <img
+                    src="images/weather_icons/hail_icon.png"
+                    alt=""
+                    class="day-card__weather scale"
+                  />
+                  <p class="day-card__temperature">20&#8451;</p>
+                </div>
+                <div class="day-card">
+                  <time class="day-card__date">Сегодня</time>
+                  <img
+                    src="images/weather_icons/cloudy_icon.png"
+                    alt=""
+                    class="day-card__weather translate"
+                  />
+                  <p class="day-card__temperature">20&#8451;</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

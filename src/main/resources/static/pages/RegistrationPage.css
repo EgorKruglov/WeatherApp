@@ -1,0 +1,26 @@
+@import url(/vendor/normalize/normalize.css);
+
+@import url(/vendor/fonts/fonts.css);
+
+@import url(../blocks/root/root.css);
+
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__link/header__link.css);
+@import url(../blocks/header/__links/header__links.css);
+@import url(../blocks/header/__logo/header__logo.css);
+
+@import url(../blocks/registration/__form/registration__form.css);
+@import url(../blocks/registration/registration.css);
+@import url(../blocks/registration/__heading/registration__heading.css);
+@import url(../blocks/registration/__input/registration__input.css);
+@import url(../blocks/registration/__label/registration__label.css);
+@import url(../blocks/registration/__submit-button/registration__submit-button.css);
+@import url(../blocks/registration/__title-info/registration__title-info.css);
+@import url(../blocks/registration/__title_acc/registration__title-acc.css);
+@import url(../blocks/registration/__inputs-info/registration__inputs-info.css);
+@import url(../blocks/registration/__inputs-acc/registration__inputs-acc.css);
+@import url(../blocks/registration/__radio-container/registration__radio-container.css);
+@import url(../blocks/registration/__radio/registration__radio.css);
+
+
+

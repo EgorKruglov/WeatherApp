@@ -1,0 +1,17 @@
+.registration__input {
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #333f68;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  padding-bottom: 5px;
+  transition: border-color 0.2s ease-in-out;
+  margin-left: 10px;
+}
+.registration__input:hover {
+    border-color: #2691d9;
+  }

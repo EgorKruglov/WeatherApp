@@ -1,0 +1,17 @@
+.user-search__button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  background: url(../../../images/info_icons/search_icon.png) no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition:opacity .4s ease-in-out;
+  margin-top: 5px;
+}
+.user-search__button:hover{
+    opacity: 0.5;
+}

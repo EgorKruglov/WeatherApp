@@ -1,0 +1,20 @@
+.profile__phone-number {
+  font-size: 15px;
+  margin: 0;
+  margin-top: 50px;
+  position: relative;
+  padding-left: 18px;
+}
+.profile__phone-number::before {
+  content: "";
+  background: url(../../../images/info_icons/phone_icon.png) no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

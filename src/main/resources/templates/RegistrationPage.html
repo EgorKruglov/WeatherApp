@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/RegistrationPage.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="root">
+      <header class="header">
+        <img src="./images/header__logo.svg" alt="" class="header__logo" />
+        <div class="header__links">
+          <a href="./index.html" class="header__link">Вход</a>
+          <a href="" class="header__link">Регистрация</a>
+        </div>
+      </header>
+      <main class="main">
+        <section class="registration">
+          <form class="registration__form" name="registration__form">
+            <h1 class="registration__heading">Регистрация</h1>
+            <div class="registration__radio-container">
+              <input
+                class="registration__radio"
+                type="radio"
+                id="admin"
+                name="role"
+                value="admin"
+              />
+              <label class="registration__label" for="admin">Admin</label>
+
+              <input
+                class="registration__radio"
+                type="radio"
+                id="user"
+                name="role"
+                value="user"
+                checked
+              />
+              <label class="registration__label" for="user">User</label>
+            </div>
+            <div class="registration__inputs-info">
+              <h2 class="registration__title-info">
+                Информация о пользователе
+              </h2>
+
+              <div class="registration__input-container">
+                <label class="registration__label" for="registration_name"
+                  >Имя</label
+                >
+                <input
+                  type="text"
+                  placeholder="Введите ваше имя"
+                  name="name"
+                  id="registration_name"
+                  class="registration__input"
+                  required
+                />
+              </div>
+              <div class="registration__input-container">
+                <label class="registration__label" for="registration_last_name"
+                  >Фамилия</label
+                >
+                <input
+                  type="text"
+                  placeholder="Введите вашу фамилию"
+                  name="last_name"
+                  id="registration_last_name"
+                  class="registration__input"
+                  required
+                />
+              </div>
+              <div class="registration__input-container">
+                <label class="registration__label" for="registration_number"
+                  >Телефон</label
+                >
+                <input
+                  type="tel"
+                  placeholder="+7 (___) ___-____"
+                  name="number"
+                  id="registration_number"
+                  class="registration__input"
+                  required
+                />
+              </div>
+            </div>
+            <div class="registration__inputs-acc">
+              <h2 class="registration__title-acc">Аккаунт</h2>
+
+              <div class="registration__input-container">
+                <label class="registration__label" for="registration_login"
+                  >Логин</label
+                >
+                <input
+                  type="text"
+                  placeholder="Введите логин"
+                  name="login"
+                  id="registration_login"
+                  class="registration__input"
+                  required
+                />
+              </div>
+              <div class="registration__input-container">
+                <label class="registration__label" for="email">Email</label>
+                <input
+                  type="email"
+                  placeholder="example@mail.ru"
+                  name="email"
+                  id="email"
+                  class="registration__input"
+                  required
+                />
+              </div>
+              <div class="registration__input-container">
+                <label class="registration__label" for="registration_password"
+                  >Пароль</label
+                >
+                <input
+                  type="password"
+                  placeholder="Введите пароль"
+                  name="password"
+                  id="registration_password"
+                  class="registration__input"
+                  required
+                />
+              </div>
+              <div class="registration__input-container">
+                <label
+                  class="registration__label"
+                  for="registration_password-repeat"
+                  >Повторите пароль</label
+                >
+                <input
+                  type="password"
+                  placeholder=""
+                  name="password-repeat"
+                  id="registration_password-repeat"
+                  class="registration__input"
+                  required
+                />
+              </div>
+            </div>
+            <button type="submit" class="registration__submit-button">
+              Подтвердить
+            </button>
+          </form>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

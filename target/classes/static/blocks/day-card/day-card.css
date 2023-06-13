@@ -1,0 +1,23 @@
+.day-card {
+  max-width: 100px;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 0px 6px 0px rgba(151, 151, 151, 0.223);
+  transition: box-shadow 0.4s ease-in-out;
+}
+.day-card:hover .rotate {
+  transform: rotate(180deg);
+}
+.day-card:hover {
+  box-shadow: 2px 0px 6px 0px rgba(151, 151, 151, 0.521);
+}
+.day-card:hover .translate {
+  transform: translate(5px, 0px);
+}
+.day-card:hover .scale {
+  transform: scale(1.2);
+}

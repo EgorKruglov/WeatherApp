@@ -1,0 +1,6 @@
+.registration__radio {
+  margin-left: 10px;
+}
+.registration__radio:first-child {
+  margin-left: 0;
+}

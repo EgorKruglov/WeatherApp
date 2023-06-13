@@ -1,0 +1,6 @@
+.header__link_type_light {
+  color: black;
+}
+.header__link_type_light:hover {
+    color: #e318c2;
+  }

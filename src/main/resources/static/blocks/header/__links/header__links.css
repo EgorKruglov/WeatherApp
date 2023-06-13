@@ -1,0 +1,5 @@
+.header__links {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
