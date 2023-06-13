@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/LoginPage.css" />
+    <link rel="stylesheet" th:href="@{/pages/LoginPage.css}" />
     <title>Document</title>
   </head>
   <body>
     <div class="root">
       <header class="header">
-        <img src="./images/header__logo.svg" alt="" class="header__logo" />
+        <img th:src="@{/images/header__logo.svg}" alt="" class="header__logo" />
         <div class="header__links">
-          <a href="" class="header__link">Вход</a>
-          <a href="./RegistrationPage.html" class="header__link">Регистрация</a>
+          <a th:href="@{index}" class="header__link">Вход</a>
+          <a th:href="@{RegistrationPage}" class="header__link">Регистрация</a>
         </div>
       </header>
       <main class="main">
         <section class="login">
-          <form class="login__form" name="login__form" action="./ProfilePage.html">
+          <form class="login__form" name="login__form" th:action="@{ProfilePage}">
             <h1 class="login__heading">Вход</h1>
             <div class="login__inputs">
               <label class="login__label" for="input_login">логин</label>
@@ -42,6 +42,6 @@
         </section>
       </main>
     </div>
-    <script src="./scripts/index.js"></script>
+    <script th:src="@{/scripts/index.js}"></script>
   </body>
 </html>

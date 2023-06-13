@@ -15,8 +15,7 @@ submit_but.onclick = function Submit(){//window.location.replace("./ProfilePage.
     xmlHttp.send(auth_body);
     if(xmlHttp.status==200){
         document.cookie = "user_id="+xmlHttp.response;
-        
-        
+
     }
     
 }

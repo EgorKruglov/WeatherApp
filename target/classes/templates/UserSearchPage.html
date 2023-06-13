@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/UserSearchPage.css" />
+    <link rel="stylesheet" th:href="@{/pages/UserSearchPage.css}" />
     <title>Document</title>
   </head>
   <body>
     <div class="root root_type_light">
       <header class="header">
-        <img src="images/header__logo.svg" alt="" class="header__logo" />
+        <img th:src="@{/images/header__logo.svg}" alt="" class="header__logo" />
         <div class="header__links">
           <a href="" class="header__link">Поиск</a>
         </div>

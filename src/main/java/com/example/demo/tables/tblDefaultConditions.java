@@ -15,14 +15,15 @@ public class tblDefaultConditions {
     private String condition;
 
     @ManyToOne
-    @JoinColumn(name = "default_triggerID", insertable = false, updatable = false)
+    @JoinColumn(name = "default_triggerID", insertable=false, updatable=false)
     private tblDefaultTriggers default_triggerID;
+
+
 
 
     public Integer getDefault_condition_id() {
         return default_condition_id;
     }
-
     public void setDefault_triggerID(Integer default_condition_id) {
         this.default_condition_id = default_condition_id;
     }
@@ -30,7 +31,6 @@ public class tblDefaultConditions {
     public String getCondition() {
         return condition;
     }
-
     public void setCondition(String condition) {
         this.condition = condition;
     }

@@ -3,6 +3,7 @@ package com.example.demo.tables;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "tblDefaultTriggers")
@@ -39,7 +40,6 @@ public class tblDefaultTriggers {
     public Integer getDefault_trigger_id() {
         return default_trigger_id;
     }
-
     public void setDefault_trigger_id(Integer default_trigger_id) {
         this.default_trigger_id = default_trigger_id;
     }
@@ -47,32 +47,25 @@ public class tblDefaultTriggers {
     public List<tblDefaultConditions> getConditions() {
         return conditions;
     }
-
     public void setConditions(List<tblDefaultConditions> conditions) {
         this.conditions = conditions;
     }
 
 
+
     public Byte getCelsius_min() {
         return celsius_min;
     }
-
-    public void setCelsius_min(Byte celsius_min) {
-        this.celsius_min = celsius_min;
-    }
+    public void setCelsius_min(Byte celsius_min) {this.celsius_min = celsius_min;}
 
     public Byte getCelsius_max() {
         return celsius_max;
     }
-
-    public void setCelsius_max(Byte celsius_max) {
-        this.celsius_max = celsius_max;
-    }
+    public void setCelsius_max(Byte celsius_max) {this.celsius_max = celsius_max;}
 
     public Integer getHumidity_min() {
         return humidity_min;
     }
-
     public void setHumidity_min(Integer humidity_min) {
         this.humidity_min = humidity_min;
     }
@@ -80,7 +73,6 @@ public class tblDefaultTriggers {
     public Integer getHumidity_max() {
         return humidity_max;
     }
-
     public void setHumidity_max(Integer humidity_max) {
         this.humidity_max = humidity_max;
     }
@@ -88,7 +80,6 @@ public class tblDefaultTriggers {
     public Double getWind_speed_min() {
         return wind_speed_min;
     }
-
     public void setWind_speed_min(Double wind_speed_min) {
         this.wind_speed_min = wind_speed_min;
     }
@@ -96,7 +87,6 @@ public class tblDefaultTriggers {
     public Double getWind_speed_max() {
         return wind_speed_max;
     }
-
     public void setWind_speed_max(Double wind_speed_max) {
         this.wind_speed_max = wind_speed_max;
     }

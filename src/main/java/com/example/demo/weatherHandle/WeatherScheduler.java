@@ -1,10 +1,9 @@
-package com.example.demo.scheduler;
+package com.example.demo.weatherHandle;
 
+import com.example.demo.dataToFront.Weather;
 import com.example.demo.repos.*;
-import com.example.demo.scheduler.email.HtmlMessageService;
 import com.example.demo.tables.*;
-import com.example.demo.weatherHandle.Weather;
-import com.example.demo.weatherHandle.WeatherApiClient;
+import com.example.demo.weatherHandle.email.HtmlMessageService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,9 +50,8 @@ public class WeatherScheduler {     // Класс отправляет запр�
 
     }
 
-//    @Scheduled(cron = "0 0 * * * *") // Чтобы запускать каждый час
-//    @Scheduled(cron = "0 * * * * *") // Чтобы запускать каждую минуту
-    @Scheduled(cron = "0 0 0 1 1 *") // Чтобы запускать раз в год
+    //    @Scheduled(cron = "0 0 * * * *") // Чтобы запускать каждый час
+    @Scheduled(cron = "0 * * * * *") // Чтобы запускать каждую минуту
     public void fetchWeatherAndStore() throws JsonProcessingException, ParseException {
 
         List<tblLocations> allLocations = (List<tblLocations>) LocationsRepo.findAll();
@@ -122,7 +120,7 @@ public class WeatherScheduler {     // Класс отправляет запр�
                     if (Objects.equals(locationUserRelation.getLocations().getLocation_id(), location.getLocation_id())) {
 
                         try {
-                            emailService.sendEmail(locationUserRelation.getUserId().getMail(), location.getLocation_name(), respTimeEmailHours, respTimeEmailYear, messageCustom);
+                            emailService.sendEmail(locationUserRelation.getUserId().getEmail(), location.getLocation_name(), respTimeEmailHours, respTimeEmailYear, messageCustom);
                         } catch (MailException mailException) {
                             System.out.println("Ошибка во время отправки сообщения");
                         } catch (MessagingException | IOException e) {
