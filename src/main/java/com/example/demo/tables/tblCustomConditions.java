@@ -15,15 +15,14 @@ public class tblCustomConditions {
     private String condition;
 
     @ManyToOne
-    @JoinColumn(name = "custom_triggerID", insertable=false, updatable=false)
+    @JoinColumn(name = "custom_triggerID", insertable = false, updatable = false)
     private tblCustomTriggers custom_triggerID;
-
-
 
 
     public Integer getCustom_trigger_id() {
         return custom_trigger_id;
     }
+
     public void setCustom_trigger_id(Integer custom_trigger_id) {
         this.custom_trigger_id = custom_trigger_id;
     }
@@ -31,6 +30,7 @@ public class tblCustomConditions {
     public String getCondition() {
         return condition;
     }
+
     public void setCondition(String condition) {
         this.condition = condition;
     }

@@ -3,7 +3,6 @@ package com.example.demo.tables;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity
@@ -33,6 +32,7 @@ public class tblAutoRequestHistory {
     public Integer getAuto_history_id() {
         return auto_history_id;
     }
+
     public void setAuto_history_id(Integer auto_history_id) {
         this.auto_history_id = auto_history_id;
     }
@@ -40,18 +40,23 @@ public class tblAutoRequestHistory {
     public tblReplyWeather getReply_weatherID() {
         return reply_weatherID;
     }
+
     public void setReply_weatherID(tblReplyWeather reply_weatherID) {
-        this.reply_weatherID = reply_weatherID;}
+        this.reply_weatherID = reply_weatherID;
+    }
 
     public tblLocations getLocationWeather() {
         return locationWeather;
     }
+
     public void setLocationWeather(tblLocations locationWeather) {
-        this.locationWeather = locationWeather;}
+        this.locationWeather = locationWeather;
+    }
 
     public Timestamp getResp_time() {
         return resp_time;
     }
+
     public void setResp_time(Timestamp resp_time) {
         this.resp_time = resp_time;
     }
@@ -60,6 +65,7 @@ public class tblAutoRequestHistory {
     public Timestamp getReply_time() {
         return reply_time;
     }
+
     public void setReply_time(Timestamp reply_time) {
         this.reply_time = reply_time;
     }

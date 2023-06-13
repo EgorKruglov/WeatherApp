@@ -1,6 +1,6 @@
 package com.example.demo.weatherHandle;
 
-import com.example.demo.dataToFront.Weather;
+import com.example.demo.dataToFront.WeatherToFront;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,18 +21,16 @@ public class WeatherApiClient {     // Класс с методом, кидаю�
 
     public WeatherApiClient() {
         this.webClient = WebClient.builder()
-                //.baseUrl("https://api.weather.yandex.ru/v2/forecast?lat=55.75396&lon=37.620393&extra=false")
-                .baseUrl("https://api.weather.yandex.ru/v2/forecast?")
+                .baseUrl("")
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .defaultHeader("X-Yandex-API-Key", "8a13c6a3-f2b0-4632-a67c-e755248b2c3e")
                 .build();
     }
 
     public Weather getWeather(double lat, double lon) throws JsonProcessingException {
-        String url = "https://api.weather.yandex.ru/v2/forecast?lat=" + lat + "&lon=" + lon + "&extra=false";
+        String url = "https://api.weather.yandex.ru/v2/forecast?lat=" + lat + "&lon=" + lon;
         String weatherResponse = webClient.get()
                 .uri(url)
-                .header("X-Yandex-API-Key: 8a13c6a3-f2b0-4632-a67c-e755248b2c3e")
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
@@ -51,22 +49,21 @@ public class WeatherApiClient {     // Класс с методом, кидаю�
         return weather;
     }
 
-    public List<Weather> getWeatherSeven(double lat, double lon) throws JsonProcessingException, ParseException {
-        String url = "https://api.weather.yandex.ru/v2/forecast?lat=" + lat + "&lon=" + lon + "&extra=false";
+    public WeatherToFront getWeatherSeven(double lat, double lon) throws JsonProcessingException, ParseException {
+        String url = "https://api.weather.yandex.ru/v2/forecast?lat=" + lat + "&lon=" + lon;
         String weatherResponse = webClient.get()
                 .uri(url)
-                .header("X-Yandex-API-Key: 8a13c6a3-f2b0-4632-a67c-e755248b2c3e")
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
+        WeatherToFront toFront = new WeatherToFront();
         List<Weather> weather = new ArrayList<>();
         ObjectMapper objectMapper = new ObjectMapper(); // Для парсинга ответа
         JsonNode rootNode = objectMapper.readTree(weatherResponse); // Парсим ответ
         ArrayNode forecastsNode = (ArrayNode) rootNode.get("forecasts");
 
         int i = 0;
-        for (JsonNode forecasts : forecastsNode ){
-            if (i<7){
+        for (JsonNode forecasts : forecastsNode) {
             Weather dayWeather = new Weather();
 
             dayWeather.setDate(String.valueOf(forecasts.path("date")).replaceAll("\"", ""));
@@ -76,12 +73,9 @@ public class WeatherApiClient {     // Класс с методом, кидаю�
             dayWeather.setWind_speed(partNode.path("wind_speed").asDouble());
             dayWeather.setHumidity(partNode.path("humidity").asInt());
 
-           weather.add(dayWeather);
-
-           i++;}else {break;}
+            weather.add(dayWeather);
         }
-
-
-        return weather;
+        toFront.setWeather(weather);
+        return toFront;
     }
 }

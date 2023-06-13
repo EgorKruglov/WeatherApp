@@ -2,7 +2,6 @@ package com.example.demo.tables;
 
 
 import jakarta.persistence.*;
-import org.hibernate.type.descriptor.jdbc.TinyIntJdbcType;
 
 @Entity
 @Table(name = "tblReplyWeather")
@@ -31,6 +30,7 @@ public class tblReplyWeather {
     public Integer getReply_trigger_id() {
         return reply_trigger_id;
     }
+
     public void setReply_trigger_id(Integer reply_trigger_id) {
         this.reply_trigger_id = reply_trigger_id;
     }
@@ -38,6 +38,7 @@ public class tblReplyWeather {
     public Byte getCelsius() {
         return celsius;
     }
+
     public void setCelsius(Byte celsius) {
         this.celsius = celsius;
     }
@@ -45,6 +46,7 @@ public class tblReplyWeather {
     public Integer getHumidity() {
         return humidity;
     }
+
     public void setHumidity(Integer humidity) {
         this.humidity = humidity;
     }
@@ -52,6 +54,7 @@ public class tblReplyWeather {
     public String getCondition() {
         return condition;
     }
+
     public void setCondition(String condition) {
         this.condition = condition;
     }
@@ -59,6 +62,7 @@ public class tblReplyWeather {
     public Double getWind_speed() {
         return wind_speed;
     }
+
     public void setWind_speed(Double wind_speed) {
         this.wind_speed = wind_speed;
     }

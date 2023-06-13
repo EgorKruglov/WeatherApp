@@ -1,4 +1,4 @@
-package com.example.demo.dataToFront;
+package com.example.demo.weatherHandle;
 
 public class Weather {
     private String date;
@@ -10,6 +10,7 @@ public class Weather {
     public Byte getCelsius() {
         return celsius;
     }
+
     public void setCelsius(Byte celsius) {
         this.celsius = celsius;
     }
@@ -17,6 +18,7 @@ public class Weather {
     public Integer getHumidity() {
         return humidity;
     }
+
     public void setHumidity(Integer humidity) {
         this.humidity = humidity;
     }
@@ -24,6 +26,7 @@ public class Weather {
     public String getDate() {
         return date;
     }
+
     public void setDate(String date) {
         this.date = date;
     }
@@ -31,6 +34,7 @@ public class Weather {
     public String getCondition() {
         return condition;
     }
+
     public void setCondition(String condition) {
         this.condition = condition;
     }
@@ -38,6 +42,7 @@ public class Weather {
     public Double getWind_speed() {
         return wind_speed;
     }
+
     public void setWind_speed(Double wind_speed) {
         this.wind_speed = wind_speed;
     }

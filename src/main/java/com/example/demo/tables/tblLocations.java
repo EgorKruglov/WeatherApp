@@ -1,11 +1,8 @@
 package com.example.demo.tables;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import jakarta.persistence.*;
 
 import java.util.List;
-import java.util.Set;
 
 
 @Entity
@@ -38,10 +35,10 @@ public class tblLocations {
     private tblCustomTriggers custom_triggerID;
 
 
-
     public Integer getLocation_id() {
         return location_id;
     }
+
     public void setLocation_id(Integer location_id) {
         this.location_id = location_id;
     }
@@ -49,6 +46,7 @@ public class tblLocations {
     public tblDefaultTriggers getDefault_triggerID() {
         return default_triggerID;
     }
+
     public void setDefault_triggerID(tblDefaultTriggers default_triggerID) {
         this.default_triggerID = default_triggerID;
     }
@@ -56,6 +54,7 @@ public class tblLocations {
     public tblCustomTriggers getCustom_triggerID() {
         return custom_triggerID;
     }
+
     public void setCustom_triggerID(tblCustomTriggers custom_triggerID) {
         this.custom_triggerID = custom_triggerID;
     }
@@ -64,13 +63,15 @@ public class tblLocations {
     public Double getLat() {
         return lat;
     }
-    public void setLat(Double lat) {
+
+    public void setLocation_id(Double lat) {
         this.lat = lat;
     }
 
     public Double getLon() {
         return lon;
     }
+
     public void setLon(Double lon) {
         this.lon = lon;
     }
@@ -78,6 +79,7 @@ public class tblLocations {
     public String getLocation_name() {
         return location_name;
     }
+
     public void setLocation_name(String location_name) {
         this.location_name = location_name;
     }

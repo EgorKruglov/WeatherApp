@@ -2,8 +2,6 @@ package com.example.demo.tables;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 @Table(name = "tblLocationUserRelations")
 public class tblLocationUserRelations {
@@ -21,11 +19,10 @@ public class tblLocationUserRelations {
     private tblUsers userId;
 
 
-
-
     public Integer getLocation_user_relation_id() {
         return location_user_relation_id;
     }
+
     public void setLocation_user_relation_id(Integer location_user_relation_id) {
         this.location_user_relation_id = location_user_relation_id;
     }
@@ -33,6 +30,7 @@ public class tblLocationUserRelations {
     public tblLocations getLocations() {
         return locations;
     }
+
     public void setLocations(tblLocations locations) {
         this.locations = locations;
     }
@@ -40,6 +38,7 @@ public class tblLocationUserRelations {
     public tblUsers getUserId() {
         return userId;
     }
+
     public void setUserId(tblUsers userId) {
         this.userId = userId;
     }

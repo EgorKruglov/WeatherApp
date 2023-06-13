@@ -39,6 +39,7 @@ public class tblCustomTriggers {
     public Integer getCustom_trigger_id() {
         return custom_trigger_id;
     }
+
     public void setCustom_trigger_id(Integer custom_trigger_id) {
         this.custom_trigger_id = custom_trigger_id;
     }
@@ -46,25 +47,32 @@ public class tblCustomTriggers {
     public List<tblCustomConditions> getConditions() {
         return conditions;
     }
+
     public void setConditions(List<tblCustomConditions> conditions) {
         this.conditions = conditions;
     }
 
 
-
     public Byte getCelsius_min() {
         return celsius_min;
     }
-    public void setCelsius_min(Byte celsius_min) {this.celsius_min = celsius_min;}
+
+    public void setCelsius_min(Byte celsius_min) {
+        this.celsius_min = celsius_min;
+    }
 
     public Byte getCelsius_max() {
         return celsius_max;
     }
-    public void setCelsius_max(Byte celsius_max) {this.celsius_max = celsius_max;}
+
+    public void setCelsius_max(Byte celsius_max) {
+        this.celsius_max = celsius_max;
+    }
 
     public Integer getHumidity_min() {
         return humidity_min;
     }
+
     public void setHumidity_min(Integer humidity_min) {
         this.humidity_min = humidity_min;
     }
@@ -72,6 +80,7 @@ public class tblCustomTriggers {
     public Integer getHumidity_max() {
         return humidity_max;
     }
+
     public void setHumidity_max(Integer humidity_max) {
         this.humidity_max = humidity_max;
     }
@@ -79,6 +88,7 @@ public class tblCustomTriggers {
     public Double getWind_speed_min() {
         return wind_speed_min;
     }
+
     public void setWind_speed_min(Double wind_speed_min) {
         this.wind_speed_min = wind_speed_min;
     }
@@ -86,6 +96,7 @@ public class tblCustomTriggers {
     public Double getWind_speed_max() {
         return wind_speed_max;
     }
+
     public void setWind_speed_max(Double wind_speed_max) {
         this.wind_speed_max = wind_speed_max;
     }
