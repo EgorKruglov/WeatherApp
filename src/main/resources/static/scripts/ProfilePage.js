@@ -1,7 +1,7 @@
 const id = document.cookie;
 console.log(id);
 
-var xmlHttp = new XMLHttpRequest(); 
+let xmlHttp = new XMLHttpRequest(); 
 xmlHttp.open( "POST", "http://localhost:8080/WeatherAppDB/getProfile", false );
 xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 xmlHttp.send(id);

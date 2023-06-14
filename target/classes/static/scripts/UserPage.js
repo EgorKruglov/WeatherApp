@@ -18,7 +18,8 @@ var xmlHttp = new XMLHttpRequest();  //объект для запроса
         
         const node = document.createElement("div");  //создаю карточку локации
         node.classList.add("user__location");  //класс карточки локации
-        node.setAttribute("id", Locations[i].location_id);
+        
+        node.id = Locations[i].location_id;
         const node2 = document.createElement("p");  //поле для текста
         node2.classList.add("user__location-place");  //класс поля для текста
 
@@ -58,7 +59,8 @@ const humidity_to = document.getElementById("input_humidity_to");
 const lat = document.getElementById("lat");
 const lon = document.getElementById("lon");
 
-const openPopup = () => {
+const openPopup = (location) => {
+  location_name.value=location.currentTarget.id;
   popup.classList.add("popup_opened");
 };
 

@@ -93,6 +93,7 @@ public class test {
             current.setLon(location.getLon());
             current.setLat(location.getLat());
             current.setLocation_name(location.getLocation_name());
+            current.setLocation_id(location.getLocation_id());
             toFront.add(current);
         }
         return new ResponseEntity<>(toFront, HttpStatus.OK);

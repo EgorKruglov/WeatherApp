@@ -2,7 +2,7 @@ const popup = document.querySelector(".popup");  //берём попап
 const closeButton = popup.querySelector(".popup__close-button");  //берём кнопку закрытия попапа
 
 
-var xmlHttp = new XMLHttpRequest();  //объект для запроса
+let xmlHttp = new XMLHttpRequest();  //объект для запроса
     xmlHttp.open( "GET", "http://localhost:8080/get/locations", false );   //закидиваем параметры запроса (какой запрос, ссылка и ассинхронно ли)
     // false for synchronous request
     
@@ -18,7 +18,8 @@ var xmlHttp = new XMLHttpRequest();  //объект для запроса
         
         const node = document.createElement("div");  //создаю карточку локации
         node.classList.add("user__location");  //класс карточки локации
-        node.setAttribute("id", Locations[i].location_id);
+        
+        node.id = Locations[i].location_id;
         const node2 = document.createElement("p");  //поле для текста
         node2.classList.add("user__location-place");  //класс поля для текста
 
@@ -29,7 +30,7 @@ var xmlHttp = new XMLHttpRequest();  //объект для запроса
       } //карточек создаётся столько, сколько пришло локаций
     }
     
-    var xmlHttp2 = new XMLHttpRequest();
+    let xmlHttp2 = new XMLHttpRequest();
     xmlHttp2.open( "POST", "http://localhost:8080/WeatherAppDB/getProfile", false );
 xmlHttp2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 xmlHttp2.send(document.cookie);
@@ -58,7 +59,8 @@ const humidity_to = document.getElementById("input_humidity_to");
 const lat = document.getElementById("lat");
 const lon = document.getElementById("lon");
 
-const openPopup = () => {
+const openPopup = (location) => {
+  location_name.value=location.currentTarget.id;
   popup.classList.add("popup_opened");
 };
 

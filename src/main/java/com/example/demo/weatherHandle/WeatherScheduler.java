@@ -51,7 +51,7 @@ public class WeatherScheduler {     // Класс отправляет запр�
     }
 
     //    @Scheduled(cron = "0 0 * * * *") // Чтобы запускать каждый час
-  //  @Scheduled(cron = "0 * * * * *") // Чтобы запускать каждую минуту
+    @Scheduled(cron = "0 * * * * *") // Чтобы запускать каждую минуту
     public void fetchWeatherAndStore() throws JsonProcessingException, ParseException {
 
         List<tblLocations> allLocations = (List<tblLocations>) LocationsRepo.findAll();
