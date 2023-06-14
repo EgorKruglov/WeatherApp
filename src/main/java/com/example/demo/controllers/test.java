@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller // This means that this class is a Controller
-//@RequestMapping(path="/debug")
+
 public class test {
     @Autowired
     private tblLocationUserRelationsRepo LocationUserRelationsRepo;
