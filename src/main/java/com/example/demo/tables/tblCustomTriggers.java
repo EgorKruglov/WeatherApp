@@ -15,7 +15,7 @@ public class tblCustomTriggers {
     @OneToOne(mappedBy = "custom_triggerID")
     private tblLocations locations;
 
-    @OneToMany(mappedBy = "custom_triggerID", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "custom_triggerID", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<tblCustomConditions> conditions;
 
     @Column(name = "celsius_min")
@@ -36,6 +36,8 @@ public class tblCustomTriggers {
     @Column(name = "wind_speed_max")
     private Double wind_speed_max;
 
+
+
     public Integer getCustom_trigger_id() {
         return custom_trigger_id;
     }
@@ -46,8 +48,9 @@ public class tblCustomTriggers {
     public List<tblCustomConditions> getConditions() {
         return conditions;
     }
-
-
+    public void setConditions(List<tblCustomConditions> conditions) {
+        this.conditions = conditions;
+    }
 
 
     public Byte getCelsius_min() {
@@ -87,4 +90,6 @@ public class tblCustomTriggers {
     public void setWind_speed_max(Double wind_speed_max) {
         this.wind_speed_max = wind_speed_max;
     }
+
+
 }

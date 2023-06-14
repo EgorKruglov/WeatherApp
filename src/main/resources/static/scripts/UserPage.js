@@ -105,12 +105,11 @@ const submitTriggers = () => {
 
   for (i = 0; i < checkedBoxes.length; i++) { 
     conditions.push({
-      custom_trigger_id:location,
-      condition:checkedBoxes[0].id
+      condition:checkedBoxes[i].id
     });
   }
 
-
+const name = "&name="+document.getElementById("input_location-name").value;
 
 
   const data2 = JSON.stringify({"custom_trigger_id" : location, "conditions" : conditions, "celsius_min": temperature_from.value, "celsius_max": temperature_to.value, "humidity_min": humidity_from.value, "humidity_max": humidity_to.value, "wind_speed_min":wind_from.value, "wind_speed_max":wind_to.value});
@@ -120,6 +119,11 @@ const submitTriggers = () => {
   sendTriggers.setRequestHeader("Accept", "application/json");
   sendTriggers.setRequestHeader("Content-Type", "application/json");
   sendTriggers.send(data2);
+
+  let sendLocationName = new XMLHttpRequest();
+  sendLocationName.open( "POST", "http://localhost:8080/set/locationName", false );
+  sendLocationName.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  sendLocationName.send("location_id="+location+name);
 };
 
 cards.forEach(card => card.addEventListener("click", openPopup));  

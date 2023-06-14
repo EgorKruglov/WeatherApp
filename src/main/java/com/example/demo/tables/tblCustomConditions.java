@@ -2,6 +2,8 @@ package com.example.demo.tables;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "tblCustomConditions")
 public class tblCustomConditions {
@@ -14,12 +16,12 @@ public class tblCustomConditions {
     @Column(name = "condition_", length = 40)
     private String condition;
 
-    @ManyToOne
-    @JoinColumn(name = "custom_triggerID", insertable=false, updatable=false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "custom_triggerID")
     private tblCustomTriggers custom_triggerID;
 
 
-    public void setCustom_triggerID(tblCustomTriggers custom_triggerID) {
+    public void setConditions(tblCustomTriggers custom_triggerID) {
         this.custom_triggerID = custom_triggerID;
     }
 

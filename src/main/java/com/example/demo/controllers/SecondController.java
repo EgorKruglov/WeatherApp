@@ -48,20 +48,6 @@ public class SecondController {
         return CustomTriggersRepo.findAll();
     }
 
-   @PostMapping(path = "/test")
-    public @ResponseBody ResponseEntity<?> ChangePassword(
-            @RequestParam String pass
-   ){
-        Optional<tblUsers> jack = UsersRepo.findById(3);
-        if (jack.isPresent()){
-            tblUsers user = jack.get();
-            user.setPassword(pass);
-            UsersRepo.save(user);
-            return new ResponseEntity<>(user.getPassword(), HttpStatus.CONFLICT);
-        }
-        return new ResponseEntity<>("Fail", HttpStatus.CONFLICT);
-   }
-
    @RequestMapping(path = "/index")
      public String welcome(){
         return "index";
@@ -108,8 +94,21 @@ public class SecondController {
     ){
         Optional<tblLocations> location = LocationsRepo.findById(location_id);
         if (location.isPresent()){
-
             return new ResponseEntity<>(location, HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Location was not found\n", HttpStatus.NOT_FOUND);
+    }
+    @PostMapping(path = "/set/locationName")
+    public @ResponseBody ResponseEntity<?> changeLocationName(
+            @RequestParam Integer location_id,
+            @RequestParam String name
+    ){
+        Optional<tblLocations> location = LocationsRepo.findById(location_id);
+        if (location.isPresent()){
+            tblLocations loc = location.get();
+            loc.setLocation_name(name);
+            LocationsRepo.save(loc);
+            return new ResponseEntity<>("Name was changed", HttpStatus.OK);
         }
         return new ResponseEntity<>("Location was not found\n", HttpStatus.NOT_FOUND);
     }
@@ -120,19 +119,13 @@ public class SecondController {
     ){
         Optional<tblCustomTriggers> trigger = CustomTriggersRepo.findById(customTrigger.getCustom_trigger_id());
         if (trigger.isPresent()){
-            tblCustomTriggers CustomTrigger = trigger.get();
 
-            CustomTrigger.setCelsius_max(customTrigger.getCelsius_max());
-            CustomTrigger.setCelsius_min(customTrigger.getCelsius_min());
-            CustomTrigger.setHumidity_max(customTrigger.getHumidity_max());
-            CustomTrigger.setHumidity_min(customTrigger.getHumidity_min());
-            CustomTrigger.setWind_speed_max(customTrigger.getWind_speed_max());
-            CustomTrigger.setWind_speed_min(customTrigger.getWind_speed_min());
+            for (int i = 0; i<customTrigger.getConditions().size(); i++)
+            {
+                customTrigger.getConditions().get(i).setConditions(customTrigger);
+            }
 
-            tblCustomTriggers newTrigger = CustomTriggersRepo.save(CustomTrigger);
-
-
-
+            tblCustomTriggers newTrigger = CustomTriggersRepo.save(customTrigger);
 
             Optional<tblLocations> location = LocationsRepo.findById(customTrigger.getCustom_trigger_id());
             if (location.isPresent()){
@@ -142,10 +135,7 @@ public class SecondController {
 
                 return new ResponseEntity<>("Custom trigger was saved\n", HttpStatus.OK);
             }
-
         }
-
-
         return new ResponseEntity<>("Nothing has happened...\n", HttpStatus.NOT_FOUND);
     }
 }

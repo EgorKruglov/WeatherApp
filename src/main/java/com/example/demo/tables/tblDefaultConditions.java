@@ -15,7 +15,7 @@ public class tblDefaultConditions {
     private String condition;
 
     @ManyToOne
-    @JoinColumn(name = "default_triggerID", insertable=false, updatable=false)
+    @JoinColumn(name = "default_triggerID")
     private tblDefaultTriggers default_triggerID;
 
 
