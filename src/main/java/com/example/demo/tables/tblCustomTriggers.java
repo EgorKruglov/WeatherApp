@@ -46,9 +46,7 @@ public class tblCustomTriggers {
     public List<tblCustomConditions> getConditions() {
         return conditions;
     }
-    public void setConditions(List<tblCustomConditions> conditions) {
-        this.conditions = conditions;
-    }
+
 
 
 

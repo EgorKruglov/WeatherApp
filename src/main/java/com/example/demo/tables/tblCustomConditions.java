@@ -19,7 +19,9 @@ public class tblCustomConditions {
     private tblCustomTriggers custom_triggerID;
 
 
-
+    public void setCustom_triggerID(tblCustomTriggers custom_triggerID) {
+        this.custom_triggerID = custom_triggerID;
+    }
 
     public Integer getCustom_trigger_id() {
         return custom_trigger_id;

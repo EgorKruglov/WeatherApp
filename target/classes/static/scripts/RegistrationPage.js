@@ -31,7 +31,7 @@ submitButton.onclick = function Submit() {
     xmlHttp.send(reg_body);
     if(xmlHttp.status==200){
         document.cookie = "user_id="+xmlHttp.response;
-        window.location.replace("http://localhost:8080");
+        window.location.replace("/index");
     }
 
 }

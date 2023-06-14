@@ -12,7 +12,7 @@ if(xmlHttp.status==200){
     const profile = JSON.parse(xmlHttp.response);
 
 if(profile.root == 1){
-    window.location.replace("http://localhost:8080/UserPage");
+    window.location.replace("/UserPage");
 }else{
 
     document.getElementById("name").innerText = profile.name + " " + profile.surname;

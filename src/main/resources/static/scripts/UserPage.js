@@ -9,7 +9,7 @@ let xmlHttp = new XMLHttpRequest();  //объект для запроса
     xmlHttp.send( null );  
     
     if(xmlHttp.status==200){  //проверяю удачный ли запрос
-      console.log(xmlHttp.response);  //вывожу в лог то, что получил
+       
 
       const Locations = JSON.parse(xmlHttp.response);  //парсим json
 
@@ -36,10 +36,10 @@ xmlHttp2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 xmlHttp2.send(document.cookie);
 
 if(xmlHttp2.status==200){
-    console.log(xmlHttp2.response);
+    
     
     const profile = JSON.parse(xmlHttp2.response);
-
+console.log(xmlHttp2.response);
 
     document.getElementById("name").innerText = profile.name + " " + profile.surname;
     document.getElementById("userID").innerText = profile.user_id;
@@ -60,7 +60,32 @@ const lat = document.getElementById("lat");
 const lon = document.getElementById("lon");
 
 const openPopup = (location) => {
-  location_name.value=location.currentTarget.id;
+  const locationID = location.currentTarget.id;
+
+  let getLocation = new XMLHttpRequest();
+  getLocation.open( "POST", "http://localhost:8080/get/location", false );
+  getLocation.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  getLocation.send("location_id="+locationID);
+
+    if(getLocation.status==200){
+      console.log(getLocation.response);
+        const location = JSON.parse(getLocation.response);
+        const customTrigger = location.custom_triggerID;
+        location_name.value = location.location_name;
+        temperature_from.value = customTrigger.celsius_min;
+        temperature_to.value = customTrigger.celsius_max;
+        wind_from.value = customTrigger.wind_speed_min;
+        wind_to.value = customTrigger.wind_speed_max;
+        humidity_from.value = customTrigger.humidity_min;
+        humidity_to.value = customTrigger.humidity_max;
+        lat.value = location.lat;
+        lon.value = location.lon;
+        sessionStorage.setItem("location",locationID);
+        customTrigger.conditions.forEach(condition =>{
+          document.getElementById(condition.condition).checked = true;
+        });
+    }
+
   popup.classList.add("popup_opened");
 };
 
@@ -68,18 +93,36 @@ const closePopup = () => {
   
   popup.classList.remove("popup_opened");
   document.querySelector(".popup__form").scrollTo(0,0);
-  location_name.value="";
-  temperature_from.value="";
-  temperature_to.value="";
-  wind_from.value="";
-  wind_to.value="";
-  humidity_from.value="";
-  humidity_to.value="";
-  lat.value="";
-  lon.value="";
+  document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
+  
+};
+
+const submitTriggers = () => {
+  const location = sessionStorage.getItem("location");
+  var conditions =[];
+  var checkedBoxes = document.querySelectorAll('input[name=name]:checked');
+
+
+  for (i = 0; i < checkedBoxes.length; i++) { 
+    conditions.push({
+      custom_trigger_id:location,
+      condition:checkedBoxes[0].id
+    });
+  }
+
+
+
+
+  const data2 = JSON.stringify({"custom_trigger_id" : location, "conditions" : conditions, "celsius_min": temperature_from.value, "celsius_max": temperature_to.value, "humidity_min": humidity_from.value, "humidity_max": humidity_to.value, "wind_speed_min":wind_from.value, "wind_speed_max":wind_to.value});
+
+  let sendTriggers = new XMLHttpRequest();
+  sendTriggers.open( "POST", "http://localhost:8080/set/custom", false );
+  sendTriggers.setRequestHeader("Accept", "application/json");
+  sendTriggers.setRequestHeader("Content-Type", "application/json");
+  sendTriggers.send(data2);
 };
 
 cards.forEach(card => card.addEventListener("click", openPopup));  
 closeButton.addEventListener("click", closePopup);  
-
+document.getElementById("submitTriggers").addEventListener("click", submitTriggers);
 

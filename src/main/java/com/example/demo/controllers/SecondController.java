@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.dataToFront.LocationToFront;
 import com.example.demo.repos.*;
+import com.example.demo.tables.tblCustomConditions;
 import com.example.demo.tables.tblCustomTriggers;
 import com.example.demo.tables.tblLocations;
 import com.example.demo.tables.tblUsers;
@@ -18,7 +19,7 @@ import java.util.Optional;
 
 @Controller // This means that this class is a Controller
 
-public class test {
+public class SecondController {
     @Autowired
     private tblLocationUserRelationsRepo LocationUserRelationsRepo;
     @Autowired
@@ -35,8 +36,10 @@ public class test {
     private tblAutoRequestHistoryRepo AutoRequestHistoryRepo;
     @Autowired
     private tblReplyWeatherRepo ReplyWeatherRepo;
+    @Autowired
+    private tblCustomConditionsRepo CustomConditionsRepo;
     private final WeatherApiClient weatherApiClient;
-    public test(WeatherApiClient weatherApiClient) {
+    public SecondController(WeatherApiClient weatherApiClient) {
         this.weatherApiClient = weatherApiClient;
     }
     @GetMapping(path="/all")
@@ -97,5 +100,52 @@ public class test {
             toFront.add(current);
         }
         return new ResponseEntity<>(toFront, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/get/location")
+    public @ResponseBody ResponseEntity<?> getLocationForAdmin(
+            @RequestParam Integer location_id
+    ){
+        Optional<tblLocations> location = LocationsRepo.findById(location_id);
+        if (location.isPresent()){
+
+            return new ResponseEntity<>(location, HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Location was not found\n", HttpStatus.NOT_FOUND);
+    }
+
+    @PostMapping(path = "/set/custom")
+    public @ResponseBody ResponseEntity<?> setCustomTrigger(
+            @RequestBody tblCustomTriggers customTrigger
+    ){
+        Optional<tblCustomTriggers> trigger = CustomTriggersRepo.findById(customTrigger.getCustom_trigger_id());
+        if (trigger.isPresent()){
+            tblCustomTriggers CustomTrigger = trigger.get();
+
+            CustomTrigger.setCelsius_max(customTrigger.getCelsius_max());
+            CustomTrigger.setCelsius_min(customTrigger.getCelsius_min());
+            CustomTrigger.setHumidity_max(customTrigger.getHumidity_max());
+            CustomTrigger.setHumidity_min(customTrigger.getHumidity_min());
+            CustomTrigger.setWind_speed_max(customTrigger.getWind_speed_max());
+            CustomTrigger.setWind_speed_min(customTrigger.getWind_speed_min());
+
+            tblCustomTriggers newTrigger = CustomTriggersRepo.save(CustomTrigger);
+
+
+
+
+            Optional<tblLocations> location = LocationsRepo.findById(customTrigger.getCustom_trigger_id());
+            if (location.isPresent()){
+                tblLocations Location = location.get();
+                Location.setCustom_triggerID(newTrigger);
+                LocationsRepo.save(Location);
+
+                return new ResponseEntity<>("Custom trigger was saved\n", HttpStatus.OK);
+            }
+
+        }
+
+
+        return new ResponseEntity<>("Nothing has happened...\n", HttpStatus.NOT_FOUND);
     }
 }
