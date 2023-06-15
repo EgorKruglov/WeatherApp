@@ -39,7 +39,7 @@ if(xmlHttp2.status==200){
     
     
     const profile = JSON.parse(xmlHttp2.response);
-console.log(xmlHttp2.response);
+
 
     document.getElementById("name").innerText = profile.name + " " + profile.surname;
     document.getElementById("userID").innerText = profile.user_id;

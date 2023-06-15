@@ -1,5 +1,5 @@
 const id = document.cookie;
-console.log(id);
+
 
 let xmlHttp = new XMLHttpRequest(); 
 xmlHttp.open( "POST", "http://localhost:8080/WeatherAppDB/getProfile", false );
@@ -7,7 +7,7 @@ xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 xmlHttp.send(id);
 
 if(xmlHttp.status==200){
-    console.log(xmlHttp.response);
+    
     
     const profile = JSON.parse(xmlHttp.response);
 
@@ -29,7 +29,12 @@ if(profile.root == 1){
 
         node2.appendChild(document.createTextNode(profile.locations[i].location_name));  //в поле передаю координаты и название
         node.appendChild(node2);  //добавляю текст в карточку
-
+        
+        // Слушатель событий к каждой локации
+        node.addEventListener("click", function(event) {
+            sessionStorage.setItem('location_id', event.target.id);
+            window.location.href="/WeatherPage";
+        });
         document.getElementById("container").appendChild(node); 
     }
 }

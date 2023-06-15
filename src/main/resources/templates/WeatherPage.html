@@ -44,66 +44,66 @@
             <div class="day-cards">
               <h2 class="day-cards__week-title">Неделя</h2>
               <div class="day-cards__container">
-                <div class="day-card">
+                <div id="day-card-first" class="day-card">
                   <time class="day-card__date">Сегодня</time>
                   <img
                     src="images/weather_icons/sun_icon.png"
                     alt=""
-                    class="day-card__weather rotate"
+                    class="day-card__weather "
                   />
                   <p class="day-card__temperature">20&#8451;</p>
                 </div>
-                <div class="day-card">
+                <div id="day-card-second" class="day-card">
                   <time class="day-card__date">Сегодня</time>
                   <img
                     src="images/weather_icons/cloudy_sun_icon.png"
                     alt=""
-                    class="day-card__weather translate"
+                    class="day-card__weather "
                   />
                   <p class="day-card__temperature">20&#8451;</p>
                 </div>
-                <div class="day-card">
+                <div id="day-card-third" class="day-card">
                   <time class="day-card__date">Сегодня</time>
                   <img
                     src="images/weather_icons/lightning-icon.png"
                     alt=""
-                    class="day-card__weather scale"
+                    class="day-card__weather "
                   />
                   <p class="day-card__temperature">20&#8451;</p>
                 </div>
-                <div class="day-card">
+                <div id="day-card-fourth" class="day-card">
                   <time class="day-card__date">Сегодня</time>
                   <img
                     src="images/weather_icons/lightning_rain_icon.png"
                     alt=""
-                    class="day-card__weather scale"
+                    class="day-card__weather "
                   />
                   <p class="day-card__temperature">20&#8451;</p>
                 </div>
-                <div class="day-card">
+                <div id="day-card-fifth" class="day-card">
                   <time class="day-card__date">Сегодня</time>
                   <img
                     src="images/weather_icons/snow_icon.png"
                     alt=""
-                    class="day-card__weather translate"
+                    class="day-card__weather "
                   />
                   <p class="day-card__temperature">20&#8451;</p>
                 </div>
-                <div class="day-card">
+                <div id="day-card-sixth" class="day-card">
                   <time class="day-card__date">Сегодня</time>
                   <img
                     src="images/weather_icons/hail_icon.png"
                     alt=""
-                    class="day-card__weather scale"
+                    class="day-card__weather "
                   />
                   <p class="day-card__temperature">20&#8451;</p>
                 </div>
-                <div class="day-card">
+                <div id="day-card-seventh" class="day-card">
                   <time class="day-card__date">Сегодня</time>
                   <img
                     src="images/weather_icons/cloudy_icon.png"
                     alt=""
-                    class="day-card__weather translate"
+                    class="day-card__weather "
                   />
                   <p class="day-card__temperature">20&#8451;</p>
                 </div>
@@ -113,5 +113,6 @@
         </section>
       </main>
     </div>
+    <script th:src="@{/scripts/WeatherPage.js}"></script>
   </body>
 </html>
