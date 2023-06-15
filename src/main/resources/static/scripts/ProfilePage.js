@@ -32,7 +32,7 @@ if(profile.root == 1){
         
         // Слушатель событий к каждой локации
         node.addEventListener("click", function(event) {
-            sessionStorage.setItem('location_id', event.target.id);
+            sessionStorage.setItem('location_id', node.getAttribute("id"));
             window.location.href="/WeatherPage";
         });
         document.getElementById("container").appendChild(node); 
