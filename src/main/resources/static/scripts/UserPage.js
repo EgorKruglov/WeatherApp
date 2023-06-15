@@ -23,7 +23,7 @@ let xmlHttp = new XMLHttpRequest();  //объект для запроса
         const node2 = document.createElement("p");  //поле для текста
         node2.classList.add("user__location-place");  //класс поля для текста
 
-        node2.appendChild(document.createTextNode("lat: "+Locations[i].lat+ "  lon: " + Locations[i].lon));  //в поле передаю координаты и название
+        node2.appendChild(document.createTextNode(Locations[i].location_name));  //в поле передаю координаты и название
         node.appendChild(node2);  //добавляю текст в карточку
 
         document.getElementById("id").appendChild(node);  //добавляю карточку в контейнер с id = "id"
