@@ -14,8 +14,8 @@ let xmlHttp = new XMLHttpRequest();  //объект для запроса
       const Locations = JSON.parse(xmlHttp.response);  //парсим json
 
       for (let i = 0; i < Locations.length; i++) {  //цикл по количеству полученных локаций
-        
-        
+
+
         const node = document.createElement("div");  //создаю карточку локации
         node.classList.add("user__location");  //класс карточки локации
         

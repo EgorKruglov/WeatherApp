@@ -99,7 +99,7 @@ for (let i = 0; i < dayCards.length; i++) {
         var id = dayCards[i].additionalParameter;
         mainWeatherIcon.src = getImgByCondition(weather.weather[id].condition);
         mainTemperature.textContent = weather.weather[id].celsius + '℃';
-        mainDate.textContent = formatDate(weather.weather[id].date);
+        mainDate.textContent = getDayOfWeek(weather.weather[id].date) + ', ' + formatDate(weather.weather[id].date);
         mainWindSpeed.textContent = ' ' + weather.weather[id].wind_speed + 'м/c';
         mainHumidity.textContent = weather.weather[id].humidity + '%';
   });
@@ -152,10 +152,6 @@ function formatDate(dateString) { // Форматирует время
   var formattedDate = day + '.' + month;
   return formattedDate;
 }
-
-
-
-
 
 /*var dateParts = weather.weather[0].date.split('-'); // Конвертируем дату
 var transformedDate = dateParts[2] + '.' + dateParts[1];*/

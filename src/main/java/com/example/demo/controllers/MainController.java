@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 
 import com.example.demo.dataToFront.LocationToFront;
+import com.example.demo.dataToFront.UserLocationRelation;
 import com.example.demo.dataToFront.UserProfile;
 import com.example.demo.repos.*;
 import com.example.demo.tables.*;
@@ -181,13 +182,33 @@ public @ResponseBody ResponseEntity<?> checkAdminCode(
         return new ResponseEntity<>("User was not found\n", HttpStatus.NOT_FOUND);
     }
 
-    //Чтение всех полей в таблтцах
+    //Чтение всех полей в таблицах
 
     @GetMapping(path="/all/tblUsers")
     public @ResponseBody Iterable<tblUsers> getAllUsers() {
         // This returns a JSON or XML with the users
         return UsersRepo.findAll();
     }
+
+/*    @GetMapping(path="/all/tblLocationUserRelations")
+    public @ResponseBody Iterable<tblLocationUserRelations> getAllLocationUserRelations() {
+        return LocationUserRelationsRepo.findAll();
+    }*/
+
+    @GetMapping(path="/all/tblLocationUserRelations")
+    public @ResponseBody ResponseEntity<?> relationsToFront() {
+        Iterable<tblLocationUserRelations> allRelations = LocationUserRelationsRepo.findAll();
+
+        UserLocationRelation simpleRelations = new UserLocationRelation();
+
+        for (tblLocationUserRelations relation : allRelations) {
+            Integer targetUser = relation.getUserId().getUser_id();
+            String targetLocation = relation.getLocations().getLocation_name();
+            simpleRelations.addRelation(targetUser, targetLocation);
+        }
+        return new ResponseEntity<>(simpleRelations, HttpStatus.OK);
+    }
+
 
 
 
