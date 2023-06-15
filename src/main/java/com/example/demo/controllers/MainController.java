@@ -132,9 +132,20 @@ public @ResponseBody ResponseEntity <?> addAdminCode(
             return new ResponseEntity<>("User is not admin\n", HttpStatus.CONFLICT);
         }
     }
-
-        return new ResponseEntity<>("Admin was not found\n", HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>("Admin was not found\n", HttpStatus.NOT_FOUND);
 }
+
+@PostMapping(path = "/check/code")
+public @ResponseBody ResponseEntity<?> checkAdminCode(
+        @RequestParam String code
+){
+        Optional<tblAdminCodes> admin = AdminCodesRepo.findByCode(code);
+        if (admin.isPresent()){
+            return new ResponseEntity<>("Accepted", HttpStatus.OK);
+        }
+    return new ResponseEntity<>("Code was wrong or smth\n", HttpStatus.NOT_FOUND);
+}
+
 
     @PostMapping(path = "/getProfile")
     public @ResponseBody ResponseEntity<?> getUserProfile(

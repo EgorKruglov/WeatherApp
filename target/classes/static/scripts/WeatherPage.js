@@ -5,7 +5,6 @@ xmlHttp.open( "POST", "http://localhost:8080/WeatherAppDB/getForecast", false );
 xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 xmlHttp.send("location_id="+sessionStorage.getItem('location_id'));
 const weather = JSON.parse(xmlHttp.response)
-console.log(JSON.parse(xmlHttp.response));
 
 //Получаем нынешнее время
 var now = new Date();
