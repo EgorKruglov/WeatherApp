@@ -60,7 +60,20 @@ const lat = document.getElementById("lat");
 const lon = document.getElementById("lon");
 
 const openPopup = (location) => {
+  document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
+  location_name.value = "";
+        temperature_from.value = "";
+        temperature_to.value = "";
+        wind_from.value = "";
+        wind_to.value = "";
+        humidity_from.value = "";
+        humidity_to.value = "";
+        lat.value = "";
+        lon.value = "";
+
+
   const locationID = location.currentTarget.id;
+  if (locationID != "add"){
 
   let getLocation = new XMLHttpRequest();
   getLocation.open( "POST", "http://localhost:8080/get/location", false );
@@ -80,12 +93,13 @@ const openPopup = (location) => {
         humidity_to.value = customTrigger.humidity_max;
         lat.value = location.lat;
         lon.value = location.lon;
-        sessionStorage.setItem("location",locationID);
+        
         customTrigger.conditions.forEach(condition =>{
           document.getElementById(condition.condition).checked = true;
         });
     }
-
+  }
+  sessionStorage.setItem("location",locationID);
   popup.classList.add("popup_opened");
 };
 
@@ -93,16 +107,36 @@ const closePopup = () => {
   
   popup.classList.remove("popup_opened");
   document.querySelector(".popup__form").scrollTo(0,0);
-  document.querySelectorAll('input[type=checkbox]').forEach(el => el.checked = false);
   
 };
 
 const submitTriggers = () => {
   const location = sessionStorage.getItem("location");
+  if (location == "add"){
+    var conditions =[];
+    var checkedBoxes = document.querySelectorAll('input[name=name]:checked');
+    for (i = 0; i < checkedBoxes.length; i++) { 
+    conditions.push({
+      condition:checkedBoxes[i].id
+    });}
+    const name = document.getElementById("input_location-name").value;
+    const custom = {"conditions" : conditions, "celsius_min": temperature_from.value, "celsius_max": temperature_to.value, "humidity_min": humidity_from.value, "humidity_max": humidity_to.value, "wind_speed_min":wind_from.value, "wind_speed_max":wind_to.value};  
+    const defaultT = {"conditions" : conditions, "celsius_min": temperature_from.value, "celsius_max": temperature_to.value, "humidity_min": humidity_from.value, "humidity_max": humidity_to.value, "wind_speed_min":wind_from.value, "wind_speed_max":wind_to.value};  
+    const newLocation = JSON.stringify({"lat": lat.value, "lon": lon.value, "location_name": name, "default_triggerID": defaultT, "custom_triggerID": custom});
+
+    let addLocation = new XMLHttpRequest();
+    addLocation.open( "POST", "http://localhost:8080/add/location", false );
+    addLocation.setRequestHeader("Accept", "application/json");
+    addLocation.setRequestHeader("Content-Type", "application/json");
+    addLocation.send(newLocation);
+    if(addLocation.status==200){
+      window.alert("Location was added.");
+    }
+  }
+
+  else{
   var conditions =[];
   var checkedBoxes = document.querySelectorAll('input[name=name]:checked');
-
-
   for (i = 0; i < checkedBoxes.length; i++) { 
     conditions.push({
       condition:checkedBoxes[i].id
@@ -124,9 +158,10 @@ const name = "&name="+document.getElementById("input_location-name").value;
   sendLocationName.open( "POST", "http://localhost:8080/set/locationName", false );
   sendLocationName.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   sendLocationName.send("location_id="+location+name);
+}
 };
 
 cards.forEach(card => card.addEventListener("click", openPopup));  
 closeButton.addEventListener("click", closePopup);  
 document.getElementById("submitTriggers").addEventListener("click", submitTriggers);
-
+document.getElementById("add").addEventListener("click", openPopup);

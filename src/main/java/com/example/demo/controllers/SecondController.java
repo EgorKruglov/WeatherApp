@@ -2,10 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.dataToFront.LocationToFront;
 import com.example.demo.repos.*;
-import com.example.demo.tables.tblCustomConditions;
-import com.example.demo.tables.tblCustomTriggers;
-import com.example.demo.tables.tblLocations;
-import com.example.demo.tables.tblUsers;
+import com.example.demo.tables.*;
 import com.example.demo.weatherHandle.WeatherApiClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -122,7 +119,7 @@ public class SecondController {
 
             for (int i = 0; i<customTrigger.getConditions().size(); i++)
             {
-                customTrigger.getConditions().get(i).setConditions(customTrigger);
+                customTrigger.getConditions().get(i).setCustom_triggerID(customTrigger);
             }
 
             tblCustomTriggers newTrigger = CustomTriggersRepo.save(customTrigger);
@@ -137,5 +134,28 @@ public class SecondController {
             }
         }
         return new ResponseEntity<>("Nothing has happened...\n", HttpStatus.NOT_FOUND);
+    }
+
+    @PostMapping(path = "/add/location")
+    public @ResponseBody ResponseEntity<?> addLocation(
+            @RequestBody tblLocations location
+    ){
+       tblCustomTriggers customTrigger = location.getCustom_triggerID();
+       tblDefaultTriggers defaultTrigger = location.getDefault_triggerID();
+
+        for (int i = 0; i<customTrigger.getConditions().size(); i++)
+        {
+            customTrigger.getConditions().get(i).setCustom_triggerID(customTrigger);
+            defaultTrigger.getConditions().get(i).setDefault_triggerID(defaultTrigger);
+        }
+        tblCustomTriggers custom = CustomTriggersRepo.save(customTrigger);
+
+        tblDefaultTriggers defaultT = DefaultTriggersRepo.save(defaultTrigger);
+
+        location.setCustom_triggerID(custom);
+        location.setDefault_triggerID(defaultT);
+        tblLocations newLocation = LocationsRepo.save(location);
+        System.out.println(newLocation.getLocation_id());
+        return new ResponseEntity<>(newLocation.getLocation_id(), HttpStatus.OK);
     }
 }

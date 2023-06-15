@@ -16,7 +16,7 @@ public class tblDefaultTriggers {
     @OneToOne(mappedBy = "default_triggerID")
     private tblLocations locations;
 
-    @OneToMany(mappedBy = "default_triggerID", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "default_triggerID", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<tblDefaultConditions> conditions;
 
     @Column(name = "celsius_min")

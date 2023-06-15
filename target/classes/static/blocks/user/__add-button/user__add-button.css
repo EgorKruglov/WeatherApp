@@ -1,0 +1,20 @@
+.user__add-button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    background: url(../../../images/addButton.png) no-repeat;
+    background-size: contain;
+    width: 90px;
+    height: 50px;
+    cursor: pointer;
+    transition: opacity 0.4s ease-in-out;
+    position: absolute;
+    top: 50px;
+    right: 70px;
+  }
+  .user__add-button:hover {
+    opacity: 0.5;
+  }
+  

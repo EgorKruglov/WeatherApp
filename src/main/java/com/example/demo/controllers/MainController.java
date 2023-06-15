@@ -56,7 +56,7 @@ public class MainController {
         for (tblUsers user : allUsers){
 
             if ((user.getPhone_number().toString().equals(login) || Objects.equals(user.getEmail(), login)) && Objects.equals(user.getPassword(), password)){
-                System.out.println("YES");
+                System.out.println("Authorised");
                 return new ResponseEntity<>(user.getUser_id(), HttpStatus.OK);
             }
         }
