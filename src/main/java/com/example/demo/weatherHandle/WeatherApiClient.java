@@ -23,7 +23,7 @@ public class WeatherApiClient {     // Класс с методом, кидаю�
         this.webClient = WebClient.builder()
                 .baseUrl("")
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .defaultHeader("X-Yandex-API-Key", "8a13c6a3-f2b0-4632-a67c-e755248b2c3e")
+                .defaultHeader("X-Yandex-API-Key", "c73d91fd-9a41-4a55-9db5-9ddaa09e1daf")
                 .build();
     }
 

@@ -51,8 +51,9 @@ public class WeatherScheduler {     // Класс отправляет запр�
     }
 
     //@Scheduled(cron = "0 0 * * * *") // Чтобы запускать каждый час
-    //@Scheduled(cron = "0 * * * * *") // Чтобы запускать каждую минуту
-    public void fetchWeatherAndStore() throws JsonProcessingException, ParseException {
+    @Scheduled(cron = "0 * * * * *") // Чтобы запускать каждую минуту
+    public void fetchWeatherAndStore() throws JsonProcessingException,
+            ParseException {
 
         List<tblLocations> allLocations = (List<tblLocations>) LocationsRepo.findAll();
         for (tblLocations location : allLocations) {
@@ -107,16 +108,12 @@ public class WeatherScheduler {     // Класс отправляет запр�
                 messageCustom += "Скорость ветра выше нормы = " + windSpeed + "м/c<br>";
             }
 
-            StringBuilder messageConditions = new StringBuilder();
+
             List<tblCustomConditions> allCustomConditions = customTrigger.getConditions();
             for (tblCustomConditions customCondition : allCustomConditions) {
                 if (Objects.equals(customCondition.getCondition(), condition)) {
-                    messageConditions.append(condition).append(", ");
+                    messageCustom += "Климат вне нормы: " + condition + "<br>";
                 }
-            }
-
-            if (!messageConditions.isEmpty()) {
-                messageCustom += "Климат вне нормы: " + messageConditions.toString() + "<br>";
             }
 
             if (messageCustom != "") { // отправка писем
